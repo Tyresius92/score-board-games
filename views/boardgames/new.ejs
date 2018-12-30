@@ -1,0 +1,30 @@
+<% include ../partials/header %>
+
+<div class="container">
+    <h1 style="text-align: center">Create a new Board Game</h1>
+    
+    <div class="container col-md-6">
+        <form action="/boardgames" method="POST">
+            <div class="form-group">
+                <input class="form-control" type="text" name="boardgame[name]" placeholder="Name">
+            </div>
+            <div class="form-group">
+                <input class="form-control" type="number" name="boardgame[price]" placeholder="Price" min="0.01" step="0.01">
+            </div>
+            <div class="form-group">
+                <input class="form-control" type="text" name="boardgame[image]" placeholder="Image URL">
+            </div>
+            <div class="form-group">
+                <textarea class="form-control" name="boardgame[description]" placeholder="Description"></textarea>
+            </div>
+            <div class="form-group">
+                <button class="btn btn-lg btn-primary btn-block">Submit!</button>
+            </div>
+        </form>
+        <hr>
+        <a class="btn btn-info btn-block" href="/boardgames">Back to the board game list</a>
+    </div>
+</div>
+
+
+<% include ../partials/footer %>

@@ -1,0 +1,28 @@
+<% include ../partials/header %>
+
+<div class="container">
+    <h1 style="text-align: center">Edit <%= boardgame.name %></h1>
+    
+    <div class="container col-md-6">
+        <form action="/boardgames/<%= boardgame._id %>?_method=PUT" method="POST">
+            <div class="form-group">
+                <input class="form-control" type="text" name="boardgame[name]" placeholder="Name" value="<%= boardgame.name %>">
+            </div>
+            <div class="form-group">
+                <input class="form-control" type="number" name="boardgame[price]" placeholder="Price" min="0.01" step="0.01" value="<%= boardgame.price %>">
+            </div>
+            <div class="form-group">
+                <input class="form-control" type="text" name="boardgame[img]" placeholder="Image URL" value="<%= boardgame.img %>">
+            </div>
+            <div class="form-group">
+                <textarea class="form-control" type="text" name="boardgame[description]" placeholder="Description"><%= boardgame.description %></textarea>
+            </div>
+            <div class="form-group">
+                <button class="btn btn-lg btn-primary btn-block">Submit!</button>
+            </div>
+        </form>
+        <hr>
+        <a class="btn btn-info btn-block" href="/boardgames">Back to the board game list</a>
+    </div>
+</div>
+<% include ../partials/footer %>

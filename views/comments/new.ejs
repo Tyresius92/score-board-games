@@ -1,0 +1,19 @@
+<% include ../partials/header %>
+
+<div class="container col-md-8">
+    <h1 style="text-align: center">Add New Comment to <%= boardgame.name %></h1>
+    <div class="container col-md-6">
+        <form action="/boardgames/<%= boardgame._id %>/comments" method="POST">
+            <div class="form-group">
+                <textarea class="form-control" name="comment[text]" placeholder="Enter your comment here"></textarea>
+            </div>
+            <div class="form-group">
+                <button class="btn btn-lg btn-primary btn-block">Submit!</button>
+            </div>
+        </form>
+        
+        <a class="btn btn-info btn-block" href="/boardgames/<%= boardgame._id %>">Back to <%= boardgame.name %></a>
+    </div>
+</div>
+
+<% include ../partials/footer %>
