@@ -18,7 +18,9 @@ var commentRoutes = require("./routes/comments");
 var indexRoutes = require("./routes/index"); 
 
 // connect to the database
-mongoose.connect("mongodb://localhost:27017/score_board_games", {useNewUrlParser: true});
+// mongoose.connect("mongodb://localhost:27017/score_board_games", {useNewUrlParser: true});
+
+mongoose.connect("mongodb://tyresius92:tyresius92@ds145574.mlab.com:45574/scoreboardgames");
 
 //Set up default app settings. 
 app.use(express.static(__dirname + "/public")); 
