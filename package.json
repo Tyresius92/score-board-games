@@ -1,10 +1,11 @@
 {
   "name": "score_board_games",
   "version": "1.0.0",
-  "description": "A website that allows you to quickly find and review board games based on a variety of qualities.",
+  "description": "A boardgame review app.",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
   },
   "author": "Tyrel Clayton",
   "license": "ISC",
