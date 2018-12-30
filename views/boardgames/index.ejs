@@ -3,7 +3,7 @@
 <div class="container">
     <header class="jumbotron">
         <div class="container">
-            <h1><i class="fas fa-dice-d20"></i> Welcome to Score Board Games!</h1>
+            <h1><i class="fas fa-dice-d20"></i> Welcome to ScoreBoardGames!</h1>
             <p>All the board games, scored.</p>
             <p>
                 <a class="btn btn-primary btn-lg" href="/boardgames/new">Add a new Board Game</a>
@@ -22,7 +22,7 @@
         <% boardgames.forEach(function(game) { %>
             <div class="col-md-3 col-sm-6">
                 <div class="img-thumbnail">
-                    <img src="<%= game.img %>">
+                    <img src="<%= game.image %>">
                     <div>
                         <h4><%= game.name %></h4>
                     </div>
