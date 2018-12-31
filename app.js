@@ -62,5 +62,5 @@ app.use(function (req, res, next) {
 
 //Start the server and listen for requests!
 app.listen(process.env.PORT, process.env.IP, function() {
-    console.log("The ScoreBoardGames server has started!");
+    console.log("The ScoreBoardGames server is running!");
 });
