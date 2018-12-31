@@ -3,6 +3,9 @@ var mongoose = require("mongoose");
 var boardGameSchema = new mongoose.Schema({
     name: String, 
     price: String,
+    min_players: Number, 
+    max_players: Number, 
+    runtime: Number,
     image: String, 
     description: String, 
     author: {

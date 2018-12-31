@@ -6,9 +6,10 @@
         <div class="col-md-3">
             <p class="lead">ScoreBoardGames</p>
             <div class="list-group">
-                <li class="list-group-item active">Info 1</li>
-                <li class="list-group-item">Info 2</li>
-                <li class="list-group-item">Info 3</li>
+                <li class="list-group-item active"><strong><%= boardgame.name %> Stats</strong></li>
+                <li class="list-group-item">Min Players: <%= boardgame.min_players %></li>
+                <li class="list-group-item">Max Players: <%= boardgame.max_players %></li>
+                <li class="list-group-item">Runtime: <%= boardgame.runtime %> minutes</li>
             </div>
         </div>
         <div class="col-md-9">
