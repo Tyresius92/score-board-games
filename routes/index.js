@@ -21,7 +21,8 @@ router.post("/register", function(req, res) {
     User.register(newUser, req.body.password, function(err, user) {
         if (err) {
             console.log(err); 
-            return res.render("register"); 
+            req.flash("error", err.message); 
+            return res.redirect("register"); 
         }
         passport.authenticate("local")(req, res, function() {
             req.flash("success", "Account created! Nice to meet you " + req.body.username); 
@@ -36,19 +37,25 @@ router.get("/login", function(req, res) {
 });
 
 //attempt to log in
-router.post("/login", passport.authenticate("local", 
-    {
-        failureRedirect: "/login"
-    }), function(req, res) {
-        var returnTo = req.session.returnTo ? req.session.returnTo : "/boardgames";
+router.post("/login", 
+    passport.authenticate("local", 
+        {
+            failureRedirect: "/login",
+            successFlash: "Welcome back!!",
+            failureFlash: true
+        }), 
+    function(req, res) {
+        var returnTo = req.session.returnTo ? req.session.returnTo : '/boardgames';
         delete req.session.returnTo;
         res.redirect(returnTo);
-});
+    }
+);
+
 
 //log the current user out
 router.get("/logout", function(req, res) {
     req.logout(); 
-    res.redirect("/boardgames")
+    res.redirect("/boardgames");
 });
 
 module.exports = router; 
