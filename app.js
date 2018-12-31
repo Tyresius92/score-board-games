@@ -17,21 +17,20 @@ var boardgameRoutes = require("./routes/boardgames");
 var commentRoutes = require("./routes/comments");
 var indexRoutes = require("./routes/index"); 
 
-// connect to the database
-// mongoose.connect("mongodb://localhost:27017/score_board_games", {useNewUrlParser: true});
+// Create default database url
+var dburl = process.env.DATABASEURL || "mongodb://localhost:27017/score_board_games";
 
-//mongoose.connect("mongodb://tyresius92:tyresius92@ds145574.mlab.com:45574/scoreboardgames");
+// Connect to the database
+mongoose.connect(dburl);
 
-mongoose.connect(process.env.DATABASEURL);
-
-//Set up default app settings. 
+// Set up default app settings. 
 app.use(express.static(__dirname + "/public")); 
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(methodOverride("_method")); 
 app.use(flash());
 app.set("view engine", "ejs"); 
 
-//Passport Config
+// Passport Config
 app.use(expressSession({
     secret: "Board Games are so freaking dope", 
     resave: false, 
@@ -44,7 +43,7 @@ passport.use(new LocalStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser()); 
 passport.deserializeUser(User.deserializeUser()); 
 
-// currentUser middleware, will be called on all routes
+// Methods to be called on all routes
 app.use(function(req, res, next) {
     res.locals.currentUser = req.user;
     res.locals.error = req.flash("error"); 
@@ -52,17 +51,17 @@ app.use(function(req, res, next) {
     next();
 });
 
-//Set up the route prefixes
+// Set up the route prefixes
 app.use("/", indexRoutes); 
 app.use("/boardgames/:id/comments", commentRoutes); 
 app.use("/boardgames", boardgameRoutes); 
 
-//Set up 404 page
+// Set up 404 page
 app.use(function (req, res, next) {
   res.status(404).render("not_found");
 });
 
-//Start the server and listen for requests!
+// Start the server and listen for requests!
 app.listen(process.env.PORT, process.env.IP, function() {
     console.log("The ScoreBoardGames server is running!");
 });
