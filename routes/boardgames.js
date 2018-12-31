@@ -43,6 +43,8 @@ router.get("/:id", function(req, res) {
     BoardGame.findById(req.params.id).populate("comments").exec(function(err, foundBoardGame) {
         if (err) {
             console.log(err);
+            req.flash("error", "We couldn't find that boardgame"); 
+            res.redirect("/boardgames");
         } else {
             res.render("boardgames/show", {boardgame: foundBoardGame});
         }
