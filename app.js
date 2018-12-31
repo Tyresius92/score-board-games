@@ -21,7 +21,9 @@ var indexRoutes = require("./routes/index");
 var dburl = process.env.DATABASEURL || "mongodb://localhost:27017/score_board_games";
 
 // Connect to the database
-mongoose.connect(dburl);
+mongoose.connect(dburl, { useNewUrlParser: true }).catch(function (reason) {
+    console.log('Unable to connect to the mongodb instance. Error: ', reason);
+});
 
 // Set up default app settings. 
 app.use(express.static(__dirname + "/public")); 
