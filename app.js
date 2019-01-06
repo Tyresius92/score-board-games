@@ -9,7 +9,7 @@ var expressSession = require("express-session");
 var methodOverride = require("method-override"); 
 var flash = require("connect-flash"); 
 
-// Import all the models
+// Import the User model for Passport setup
 var User = require("./models/user"); 
 
 // Import all the routes

@@ -2,7 +2,6 @@ var express = require("express");
 var router = express.Router(); 
 var passport = require("passport"); 
 var User = require("../models/user"); 
-var BoardGame = require("../models/boardgame")
 
 //root route
 router.get("/", function(req, res) {
@@ -11,7 +10,7 @@ router.get("/", function(req, res) {
 
 //show form to create a user account
 router.get("/register", function(req, res) {
-    res.render("register"); 
+    res.render("account/register"); 
 });
 
 //go create the account
@@ -33,7 +32,7 @@ router.post("/register", function(req, res) {
 
 //present the login page
 router.get("/login", function(req, res) {
-    res.render("login"); 
+    res.render("account/login"); 
 });
 
 //attempt to log in
@@ -50,7 +49,6 @@ router.post("/login",
         res.redirect(returnTo);
     }
 );
-
 
 //log the current user out
 router.get("/logout", function(req, res) {
