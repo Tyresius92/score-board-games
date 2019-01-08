@@ -32,7 +32,7 @@ router.post("/register", function(req, res) {
 
 //present the login page
 router.get("/login", function(req, res) {
-    res.render("account/login"); 
+    res.render("login"); 
 });
 
 //attempt to log in
