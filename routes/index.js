@@ -10,7 +10,7 @@ router.get("/", function(req, res) {
 
 //show form to create a user account
 router.get("/register", function(req, res) {
-    res.render("account/register"); 
+    res.render("register"); 
 });
 
 //go create the account
